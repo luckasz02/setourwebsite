@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/logo.png') }}"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Tour | Oferta</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div id="preloader"></div>
+
+    <section class="sub-header2">
+      <nav>
+        <a href="{{ url_for('index') }}"
+          ><img src="{{ url_for('static', filename='images/logo.png') }}"
+        /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="{{ url_for('index') }}">ACASA</a></li>
+            <li><a href="{{ url_for('show_offers') }}">OFERTA</a></li>
+            <li><a href="{{ url_for('about') }}" target="_blank">DESPRE</a></li>
+            <li>
+              <a href="{{ url_for('contact') }}" target="_blank">CONTACT</a>
+            </li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+      <h1>Experiente memorabile pentru calatorul din tine!</h1>
+    </section>
+
+    <div class="social-icons">
+      <ul>
+        <a target="_blank" href="https://www.instagram.com/set_tour/"
+          ><li><i class="fa fa-instagram"></i></li
+        ></a>
+        <a target="_blank" href="https://www.facebook.com/SetTourTM"
+          ><li><i class="fa fa-facebook"></i></li
+        ></a>
+      </ul>
+    </div>
+
+    <!-- oferta.html -->
+    <section class="container1">
+      <div class="container2">
+        <div class="list-container">
+          <div class="left-col">
+            <h1>Diversele oferte din partea noastra</h1>
+            {% for offer in offers %}
+            <div class="house">
+              <div class="house-img">
+                <img
+                  src="{{ url_for('static', filename='images/' ~ offer.image) }}"
+                  alt="{{ offer.title }}"
+                />
+              </div>
+              <div class="house-info">
+                <p>{{ offer.title }}</p>
+                <h3>{{ offer.description }}</h3>
+                <p>{{ offer.amenities }}</p>
+                <div class="house-price">
+                  <h4>
+                    ${{ offer.price }} <span>/ {{ offer.pricing_period }}</span>
+                  </h4>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="container footer-row">
+        <hr />
+        <div class="footer-left-col">
+          <div class="footer-links">
+            <div class="link-title">
+              <h4>Contact</h4>
+              <small>+40787-789-296</small><br />
+              <a href="mailto:contact@set-tour.ro" target="_blank"
+                ><small>contact@set-tour.ro</small></a
+              >
+            </div>
+            <div class="link-title">
+              <h4>Agentia Set Tours</h4>
+              <a
+                href="{{ url_for('static', filename='date/Brevet.pdf') }}"
+                target="_blank"
+                class="text"
+                ><small>Brevet de turism</small></a
+              ><br />
+              <a
+                href="{{ url_for('static', filename='date/Asigurare.pdf') }}"
+                target="_blank"
+                class="text"
+                ><small>Polita de asigurare</small></a
+              >
+            </div>
+            <div class="link-title">
+              <h4>Informatii Utile</h4>
+              <a
+                href="{{ url_for('static', filename='date/Licenta turism.pdf') }}"
+                target="_blank"
+                class="text"
+                ><small>Licenta de turism</small><br
+              /></a>
+              <a
+                href="{{ url_for('static', filename='date/Certificat turism.pdf') }}"
+                target="_blank"
+                class="text"
+                ><small>Certificat de inregistrare</small></a
+              >
+            </div>
+            <div class="link-title">
+              <h4>Diverse</h4>
+              <a href="https://mae.ro/search/node/" target="_blank" class="text"
+                ><small>Informatii MAE</small><br
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-right-col">
+          <div class="footer-info">
+            <div class="footer-logo">
+              <a href="{{ url_for('index') }}"
+                ><img src="{{ url_for('static', filename='images/logo.png') }}"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      var loader = document.getElementById("preloader");
+
+      window.addEventListener("load", function () {
+        loader.style.display = "none";
+      });
+
+      var navLinks = document.getElementById("navLinks");
+
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+  </body>
+</html>

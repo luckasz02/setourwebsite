@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Edit Offer</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4eedb;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .admin-container {
+        width: 80%;
+        max-width: 600px;
+        background-color: #fff;
+        padding: 20px;
+        margin-top: 80px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      input[type="text"],
+      textarea,
+      select,
+      button {
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      button {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .back-btn {
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .back-btn:hover {
+        color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-container">
+      <h1>Edit Offer</h1>
+      <form method="POST" enctype="multipart/form-data">
+        <input
+          type="text"
+          name="title"
+          placeholder="Offer Title"
+          value="{{ offer.title }}"
+          required
+        />
+        <textarea name="description" placeholder="Offer Description" required>
+{{ offer.description }}</textarea
+        >
+        <input
+          type="text"
+          name="price"
+          placeholder="Price"
+          value="{{ offer.price }}"
+          required
+        />
+        <label>Current Image:</label>
+        {% if offer.image %}
+        <img
+          src="{{ url_for('static', filename='images/' + offer.image) }}"
+          alt="{{ offer.title }}"
+          style="width: 100%; max-width: 150px; margin-top: 10px; border-radius: 4px;"
+        />
+        {% else %}
+        <p>No image available</p>
+        {% endif %}
+        <label for="new_image">Upload New Image (optional):</label>
+        <input type="file" name="new_image" accept="image/*" />
+        <input
+          type="text"
+          name="amenities"
+          placeholder="Amenities e.g., 1 Bedroom / 1 Bathroom / Wi-fi / Kitchen"
+          value="{{ offer.amenities }}"
+        />
+        <label for="pricing_period">Pricing Period:</label>
+        <select name="pricing_period" id="pricing_period">
+          <option value="day" {% if offer.pricing_period == "day" %}selected{% endif %}>Per Day</option>
+          <option value="week" {% if offer.pricing_period == "week" %}selected{% endif %}>Per Week</option>
+          <option value="month" {% if offer.pricing_period == "month" %}selected{% endif %}>Per Month</option>
+          <option value="period" {% if offer.pricing_period == "period" %}selected{% endif %}>Per Whole Period</option>
+        </select>
+        <button type="submit">Update Offer</button>
+      </form>
+      <a href="{{ url_for('admin') }}" class="back-btn">Back to Admin</a>
+    </div>
+  </body>
+</html>

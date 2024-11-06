@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Admin - Manage Offers</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4eedb;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .admin-img {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        max-width: 1200px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      .admin-img img {
+        width: 120px;
+        transition: transform 0.3s ease;
+      }
+
+      .admin-img img:hover {
+        transform: scale(1.1);
+      }
+
+      .logout-btn {
+        background-color: #f44336;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .logout-btn:hover {
+        background-color: #d32f2f;
+      }
+
+      /* Container for the two-column layout */
+      .admin-page {
+        display: flex;
+        width: 90%;
+        max-width: 1200px;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      /* Left column for the admin form */
+      .admin-container {
+        flex: 1;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      input[type="text"],
+      textarea,
+      select,
+      button {
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Right column for the existing offers */
+      .existing-offers {
+        flex: 1;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        max-height: 70vh;
+        overflow-y: auto;
+      }
+
+      .existing-offers h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      /* Styling for each offer item */
+      .offer-item {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 10px 0;
+        background-color: #fafafa;
+      }
+
+      .offer-item h3 {
+        font-size: 18px;
+        color: #333;
+      }
+
+      .offer-item img {
+        width: 100%;
+        max-width: 150px;
+        margin-top: 10px;
+        border-radius: 4px;
+      }
+
+      /* Buttons for editing and deleting */
+      .btn {
+        padding: 8px 12px;
+        font-size: 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .edit-btn {
+        background-color: #28a745;
+        color: #fff;
+        margin-right: 5px;
+      }
+
+      .delete-btn {
+        background-color: #dc3545;
+        color: #fff;
+      }
+
+      .btn:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-img">
+      <a href="{{ url_for('index') }}">
+        <img
+          src="{{ url_for('static', filename='images/logo.png') }}"
+          alt="Logo"
+        />
+      </a>
+      <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="admin-page">
+      <div class="admin-container">
+        <h1>Manage Offers</h1>
+        <form
+          action="{{ url_for('admin') }}"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <input type="text" name="title" placeholder="Offer Title" required />
+          <textarea
+            name="description"
+            placeholder="Offer Description"
+            required
+          ></textarea>
+          <input type="text" name="price" placeholder="Price" required />
+          <label for="amenities">Amenities:</label>
+          <input
+            type="text"
+            name="amenities"
+            id="amenities"
+            placeholder="e.g., 1 Bedroom / 1 Bathroom / Wi-fi / Kitchen"
+          />
+          <label for="pricing_period">Pricing Period:</label>
+          <select name="pricing_period" id="pricing_period">
+            <option value="day">Per Day</option>
+            <option value="week">Per Week</option>
+            <option value="month">Per Month</option>
+            <option value="period">Per Whole Period</option>
+            <option value="person">Per Person</option>
+          </select>
+          <input type="file" name="image" accept="image/*" />
+          <button type="submit">Add Offer</button>
+        </form>
+      </div>
+
+      <!-- Right side: List of existing offers -->
+      <div class="existing-offers">
+        <h2>Existing Offers</h2>
+        <div class="offer-list">
+          {% for offer in offers %}
+          <div class="offer-item">
+            <h3>
+              {{ offer.title }} - ${{ offer.price }}
+              <span>/ {{ offer.pricing_period }}</span>
+            </h3>
+            <p>{{ offer.description }}</p>
+            <p><strong>Amenities:</strong> {{ offer.amenities }}</p>
+            {% if offer.image %}
+            <img
+              src="{{ url_for('static', filename='images/' + offer.image) }}"
+              alt="{{ offer.title }}"
+            />
+            {% endif %}
+            <!-- Edit button -->
+            <a
+              href="{{ url_for('edit_offer', offer_id=offer.id) }}"
+              class="btn edit-btn"
+              >Edit</a
+            >
+
+            <!-- Delete button -->
+            <form
+              action="{{ url_for('delete_offer', offer_id=offer.id) }}"
+              method="POST"
+              style="display: inline"
+            >
+              <button
+                type="submit"
+                class="btn delete-btn"
+                onclick="return confirm('Are you sure you want to delete this offer?');"
+              >
+                Delete
+              </button>
+            </form>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

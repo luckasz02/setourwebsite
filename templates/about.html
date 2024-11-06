@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Tour | Despre</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div id="preloader"></div>
+
+    <section class="sub-header3">
+        <nav>
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"></a>
+            <div class="nav-links" id="navLinks">
+               <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">ACASA</a></li>
+                    <li><a href="{{ url_for('main_offer') }}">OFERTA</a></li>
+                    <li><a href="{{ url_for('about') }}">DESPRE</a></li>
+                    <li><a href="{{ url_for('contact') }}">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i> 
+        </nav>  
+        <h1>Despre Noi</h1>
+    </section>
+
+<!-- Social Icons -->
+
+<div class="social-icons">
+    <ul>
+      <a target="_blank" href="https://www.instagram.com/set_tour/"><li><i class="fa fa-instagram"></i></li></a>
+      <a target="_blank" href="https://www.facebook.com/SetTourTM"><li><i class="fa fa-facebook"></i></li></a>
+    </ul>
+  </div>
+    
+<!----- About Us Content ----->
+
+<section class="about-us">
+    <div class="row">
+        <div class="about-col">
+            <h1>Agentia Set Tour</h1>
+            <p>Agentia Set Tour Romania este condusa de Raluca Uta si Diana Elias, consultanti bine instruiti, cu o bogata experienta in domeniul turismului.
+                Agentia are acces direct la o serie de sisteme de rezervare, care ofera posibilitatea obtinerii celor mai bune conditii si tarife.
+                Serviciile oferite:<br>
+                <ul> 
+                    <p><li>SEJURURI EXTERNE -Vacanțe în hoteluri și apartamente din Mediterană, sejur si luna de miere in țări exotice și oferte de ski prin touroperatori internaționali de renume.</li>
+                    <li>BUSINESS TRAVEL - O gama completa de servicii oferita in scopul calatoriilor de afaceri, rezervarea biletelor de avion pe orice ruta si cu orice companie de linie sau low cost.</li>
+                    <li>CIRCUITE culturale</li>
+                    <li>Rent-a-car in tara sau strainatate</li>
+                    <li>CROAZIERE</li>
+                    <li>CITY BREAKS – o evadare din rutina intr-una din marile capitale ale Europei.</li> 
+                    <li>Programe incentive si team buildinguri in tara sau strainatate</li> 
+                    <li>Bilete la concerte</li> 
+                    <li>Transferuri</li></p>
+                </ul><br>
+                <p>De asemenea va oferim un portal online pentru excursii, hoteluri, zboruri charter, bungalouri și apartamente.</p>
+            </p>
+        </div>
+        <div class="about-col">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Set Tour Logo">
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+
+<section class="footer">
+    <div class="container footer-row">
+        <hr>
+        <div class="footer-left-col">
+            <div class="footer-links">
+                <div class="link-title">
+                    <h4>Contact</h4>
+                    <small>+40787-789-296</small><br>
+                    <a href="mailto:contact@set-tour.ro" target="_blank"><small>contact@set-tour.ro</small></a>
+                </div>
+                <div class="link-title">
+                    <h4>Agentia Set Tours</h4>
+                    <a href="{{ url_for('static', filename='date/Brevet.pdf') }}" target="_blank" class="text"><small>Brevet de turism</small></a><br>
+                    <a href="{{ url_for('static', filename='date/Asigurare.pdf') }}" target="_blank" class="text"><small>Polita de asigurare</small></a>
+                </div>
+                <div class="link-title">
+                    <h4>Informatii Utile</h4>
+                    <a href="{{ url_for('static', filename='date/Licenta turism.pdf') }}" target="_blank" class="text"><small>Licenta de turism</small></a><br>
+                    <a href="{{ url_for('static', filename='date/Certificat turism.pdf') }}" target="_blank" class="text"><small>Certificat de inregistrare</small></a>
+                </div>
+                <div class="link-title">
+                    <h4>Diverse</h4>
+                    <a href="https://mae.ro/search/node/" target="_blank" class="text"><small>Informatii MAE</small></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-right-col">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Footer Logo"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!------JavaScript for Toggle Menu------>
+
+<script>
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    } 
+</script>
+
+<script>
+    var loader = document.getElementById("preloader");
+
+    window.addEventListener("load", function(){
+        loader.style.display = "none";
+    })
+</script>
+
+<script>
+    var btn = document.getElementsByClassName("btn");
+    var slide = document.getElementById("slide");
+
+    btn[0].onclick = function(){
+        slide.style.transform = "translateX(0px)"
+    }
+    btn[1].onclick = function(){
+        slide.style.transform = "translateX(-800px)"
+    }
+    btn[2].onclick = function(){
+        slide.style.transform = "translateX(-1600px)"
+    }
+    btn[3].onclick = function(){
+        slide.style.transform = "translateX(-2400px)"
+    }
+</script>
+
+</body>
+</html>

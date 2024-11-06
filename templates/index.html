@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/logo.png') }}"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Tour | Acasa</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://kit.fontawesome.com/01b84e0864.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="preloader"></div>
+
+    <!-- Header -->
+
+    <section class="header">
+      <nav>
+        <a href="{{ url_for('index') }}"
+          ><img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="Logo"
+        /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="{{ url_for('index') }}">ACASA</a></li>
+            <li>
+              <a href="{{ url_for('main_offer') }}">OFERTA</a>
+            </li>
+            <li><a href="{{ url_for('about') }}">DESPRE</a></li>
+            <li>
+              <a href="{{ url_for('contact') }}">CONTACT</a>
+            </li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+      <div class="text-box">
+        <h1>Travel with style</h1>
+      </div>
+    </section>
+
+    <!-- About Us -->
+
+    <section class="desprenoi">
+      <h1>De ce noi?</h1>
+      <div class="row">
+        <div class="course-col">
+          <h3>Pachete si asistenta</h3>
+          <p>
+            Iti oferim asistenta si te ajutam la crearea unor pachete perfecte
+            pentru bugetul si nevoile tale.
+          </p>
+        </div>
+        <div class="course-col">
+          <h3>Transparenta</h3>
+          <p>Iti oferim totala transparenta, fara costuri ascunse.</p>
+        </div>
+        <div class="course-col">
+          <h3>Friendly</h3>
+          <p>
+            Ne place sa fim neformali, directi si friendly, asa ca atunci cand
+            ne suni, saluta-ne direct cu "Ciao" :)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Icons -->
+
+    <div class="social-icons">
+      <ul>
+        <a target="_blank" href="https://www.instagram.com/set_tour/"
+          ><li><i class="fa fa-instagram"></i></li
+        ></a>
+        <a target="_blank" href="https://www.facebook.com/SetTourTM"
+          ><li><i class="fa fa-facebook"></i></li
+        ></a>
+      </ul>
+    </div>
+
+    <!-- Panel -->
+
+    <section class="panou">
+      <div class="h1"><h1>Cum ne puteti contacta?</h1></div>
+      <div class="row">
+        <div class="card">
+          <i class="fa-solid fa-phone"></i><br />
+          <h2>Telefon</h2>
+          <p>0787 789 296</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-envelope"></i><br />
+          <h2>E-mail</h2>
+          <p>contact@set-tour.ro</p>
+        </div>
+        <div class="card">
+          <i class="fa-brands fa-facebook"></i><br />
+          <h2>Social Media</h2>
+          <p>Facebook & Instagram</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-house"></i><br />
+          <h2>Direct la sediu</h2>
+          <p>Eugeniu de Savoya 20, Timișoara</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+
+    <div class="testimonial-container">
+      <h1>Aprecierile clientilor</h1>
+      <input type="radio" name="dot" id="one" />
+      <input type="radio" name="dot" id="two" />
+      <div class="main-card">
+        <div class="cards">
+          <div class="cardt">
+            <div class="content">
+              <div class="img">
+                <img
+                  src="{{ url_for('static', filename='images/p4.jpg') }}"
+                  alt="Client Photo"
+                />
+              </div>
+              <div class="details">
+                <div class="name">Andrew Neil</div>
+                <div class="job">Web Designer</div>
+              </div>
+              <div class="media-icons">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="cardt">
+            <div class="content">
+              <div class="img">
+                <img
+                  src="{{ url_for('static', filename='images/p3.jpg') }}"
+                  alt="Client Photo"
+                />
+              </div>
+              <div class="details">
+                <div class="name">Jasmine Carter</div>
+                <div class="job">UI Designer</div>
+              </div>
+              <div class="media-icons">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+            </div>
+          </div>
+          <div class="cardt">
+            <div class="content">
+              <div class="img">
+                <img
+                  src="{{ url_for('static', filename='images/p2.jpg') }}"
+                  alt="Client Photo"
+                />
+              </div>
+              <div class="details">
+                <div class="name">Justin Chung</div>
+                <div class="job">Web Developer</div>
+              </div>
+              <div class="media-icons">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="cardt">
+            <div class="content">
+              <div class="img">
+                <img
+                  src="{{ url_for('static', filename='images/p1.jpg') }}"
+                  alt="Client Photo"
+                />
+              </div>
+              <div class="details">
+                <div class="name">Appolo Reef</div>
+                <div class="job">Web Designer</div>
+              </div>
+              <div class="media-icons">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="cardt">
+            <div class="content">
+              <div class="img">
+                <img
+                  src="{{ url_for('static', filename='images/user2.jpg') }}"
+                  alt="Client Photo"
+                />
+              </div>
+              <div class="details">
+                <div class="name">Adrina Calvo</div>
+                <div class="job">UI Designer</div>
+              </div>
+              <div class="media-icons">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+            </div>
+          </div>
+          <div class="cardt">
+            <div class="content">
+              <div class="img">
+                <img
+                  src="{{ url_for('static', filename='images/user1.jpg') }}"
+                  alt="Client Photo"
+                />
+              </div>
+              <div class="details">
+                <div class="name">Nicole Lewis</div>
+                <div class="job">Web Devloper</div>
+              </div>
+              <div class="media-icons">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buttont">
+        <label for="one" class="active one"></label>
+        <label for="two" class="two"></label>
+      </div>
+    </div>
+
+    <!-- Offers -->
+
+    <section class="oferte">
+      <h1>Cateva din ofertele noastre</h1>
+      <div class="row">
+        <div class="offer-col">
+          <a href="{{ url_for('main_offer') }}">
+            <img
+              src="{{ url_for('static', filename='images/image-1.png') }}"
+              alt="Londra"
+            />
+            <div class="layer">
+              <h3>Londra <br />$170</h3>
+            </div>
+          </a>
+        </div>
+        <div class="offer-col">
+          <a href="{{ url_for('main_offer') }}">
+            <img
+              src="{{ url_for('static', filename='images/image-2.png') }}"
+              alt="Stockholm"
+            />
+            <div class="layer">
+              <h3>Stockholm <br />$290</h3>
+            </div>
+          </a>
+        </div>
+        <div class="offer-col">
+          <a href="{{ url_for('main_offer') }}">
+            <img
+              src="{{ url_for('static', filename='images/image-3.png') }}"
+              alt="Maldive"
+            />
+            <div class="layer">
+              <h3>Maldive <br />$340</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <a href="{{ url_for('show_offers') }}"
+        ><button type="button" class="btn btn-oferte">Vezi oferte</button></a
+      >
+    </section>
+
+    <!-- Footer -->
+
+    <!-- Footer -->
+    <section class="footer">
+      <div class="container footer-row">
+        <hr />
+        <div class="footer-left-col">
+          <div class="footer-links">
+            <div class="link-title">
+              <h4>Contact</h4>
+              <small>+40787-789-296</small><br />
+              <a href="mailto:contact@set-tour.ro" target="_blank"
+                ><small>contact@set-tour.ro</small></a
+              >
+            </div>
+            <div class="link-title">
+              <h4>Agentia Set Tours</h4>
+              <a
+                href="{{ url_for('static', filename='date/Brevet.pdf') }}"
+                target="_blank"
+                class="text"
+                ><small>Brevet de turism</small></a
+              ><br />
+              <a
+                href="{{ url_for('static', filename='date/Asigurare.pdf') }}"
+                target="_blank"
+                class="text"
+                ><small>Polita de asigurare</small></a
+              >
+            </div>
+            <div class="link-title">
+              <h4>Informatii Utile</h4>
+              <a
+                href="{{ url_for('static', filename='date/Licenta turism.pdf') }}"
+                target="_blank"
+                class="text"
+                ><small>Licenta de turism</small><br
+              /></a>
+              <a
+                href="{{ url_for('static', filename='date/Certificat turism.pdf') }}"
+                target="_blank"
+                class="text"
+                ><small>Certificat de inregistrare</small></a
+              >
+            </div>
+            <div class="link-title">
+              <h4>Diverse</h4>
+              <a href="https://mae.ro/search/node/" target="_blank" class="text"
+                ><small>Informatii MAE</small><br
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-right-col">
+          <div class="footer-info">
+            <!-- Wrap the logo image in a link to the login page -->
+            <div class="footer-logo">
+              <a href="{{ url_for('login') }}">
+                <img
+                  src="{{ url_for('static', filename='images/logo.png') }}"
+                  alt="Admin Login"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript -->
+
+    <script>
+      var loader = document.getElementById("preloader");
+      window.addEventListener("load", function () {
+        loader.style.display = "none";
+      });
+
+      var navLinks = document.getElementById("navLinks");
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+  </body>
+</html>
