@@ -7,7 +7,7 @@
       href="{{ url_for('static', filename='images/logo.png') }}"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Set Tour | Oferta</title>
+    <title>Set Tour | Offers</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link
       rel="stylesheet"
@@ -35,17 +35,17 @@
         <div class="nav-links" id="navLinks">
           <i class="fa fa-times" onclick="hideMenu()"></i>
           <ul>
-            <li><a href="{{ url_for('index') }}">ACASA</a></li>
-            <li><a href="{{ url_for('show_offers') }}">OFERTA</a></li>
-            <li><a href="{{ url_for('about') }}" target="_blank">DESPRE</a></li>
+            <li><a href="{{ url_for('index') }}">HOME</a></li>
+            <li><a href="{{ url_for('show_offers') }}">OFFERS</a></li>
+            <li><a href="{{ url_for('about') }}">ABOUT</a></li>
             <li>
-              <a href="{{ url_for('contact') }}" target="_blank">CONTACT</a>
+              <a href="{{ url_for('contact') }}">CONTACT</a>
             </li>
           </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
       </nav>
-      <h1>Experiente memorabile pentru calatorul din tine!</h1>
+      <h1>Memorable experiences for the traveler in you!</h1>
     </section>
 
     <div class="social-icons">
@@ -64,7 +64,7 @@
       <div class="container2">
         <div class="list-container">
           <div class="left-col">
-            <h1>Diversele oferte din partea noastra</h1>
+            <h1>Various offers from us!</h1>
             {% for offer in offers %}
             <div class="house">
               <div class="house-img">

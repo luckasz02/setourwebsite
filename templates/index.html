@@ -7,7 +7,7 @@
       href="{{ url_for('static', filename='images/logo.png') }}"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Set Tour | Acasa</title>
+    <title>Set Tour | Home</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
@@ -49,11 +49,11 @@
         <div class="nav-links" id="navLinks">
           <i class="fa fa-times" onclick="hideMenu()"></i>
           <ul>
-            <li><a href="{{ url_for('index') }}">ACASA</a></li>
+            <li><a href="{{ url_for('index') }}">HOME</a></li>
             <li>
-              <a href="{{ url_for('main_offer') }}">OFERTA</a>
+              <a href="{{ url_for('show_offers') }}">OFFERS</a>
             </li>
-            <li><a href="{{ url_for('about') }}">DESPRE</a></li>
+            <li><a href="{{ url_for('about') }}">ABOUT</a></li>
             <li>
               <a href="{{ url_for('contact') }}">CONTACT</a>
             </li>
@@ -62,33 +62,14 @@
         <i class="fa fa-bars" onclick="showMenu()"></i>
       </nav>
       <div class="text-box">
-        <h1>Travel with style</h1>
-      </div>
-    </section>
-
-    <!-- About Us -->
-
-    <section class="desprenoi">
-      <h1>De ce noi?</h1>
-      <div class="row">
-        <div class="course-col">
-          <h3>Pachete si asistenta</h3>
-          <p>
-            Iti oferim asistenta si te ajutam la crearea unor pachete perfecte
-            pentru bugetul si nevoile tale.
-          </p>
-        </div>
-        <div class="course-col">
-          <h3>Transparenta</h3>
-          <p>Iti oferim totala transparenta, fara costuri ascunse.</p>
-        </div>
-        <div class="course-col">
-          <h3>Friendly</h3>
-          <p>
-            Ne place sa fim neformali, directi si friendly, asa ca atunci cand
-            ne suni, saluta-ne direct cu "Ciao" :)
-          </p>
-        </div>
+        <h1>Set Tour: Travel with style</h1>
+        <p>
+          Discover the world your way – unforgettable journeys, tailored just
+          for you.
+        </p>
+        <a href="https://www.instagram.com" class="hero-btn"
+          >Visit Us To Know More</a
+        >
       </div>
     </section>
 
@@ -105,30 +86,147 @@
       </ul>
     </div>
 
-    <!-- Panel -->
+    <!------ WhyUs ------>
 
-    <section class="panou">
-      <div class="h1"><h1>Cum ne puteti contacta?</h1></div>
+    <section class="whyus">
+      <h1>Why choose us?</h1>
+      <p>Choose us because we are the best in the business.</p>
+
       <div class="row">
-        <div class="card">
-          <i class="fa-solid fa-phone"></i><br />
-          <h2>Telefon</h2>
-          <p>0123 456 789</p>
+        <div class="whyus-col">
+          <h3>Personalization</h3>
+          <p>
+            Every traveler is unique, and so are our itineraries. We tailor each
+            journey to suit your interests, preferences, and pace, ensuring an
+            unforgettable experience that matches your dreams.
+          </p>
         </div>
-        <div class="card">
-          <i class="fa-solid fa-envelope"></i><br />
-          <h2>E-mail</h2>
-          <p>contact@exemplu.com</p>
+        <div class="whyus-col">
+          <h3>Knowledge</h3>
+          <p>
+            With years of local expertise, our guides and planners know the
+            hidden gems and best-kept secrets of every destination. Let us show
+            you places that will make your journey truly special.
+          </p>
         </div>
-        <div class="card">
-          <i class="fa-brands fa-facebook"></i><br />
-          <h2>Social Media</h2>
-          <p>Facebook & Instagram</p>
+        <div class="whyus-col">
+          <h3>Commitment</h3>
+          <p>
+            Your comfort and safety are our top priorities. We partner with
+            reliable providers and offer 24/7 support throughout your trip, so
+            you can travel worry-free and focus on creating lasting memories.
+          </p>
         </div>
-        <div class="card">
-          <i class="fa-solid fa-house"></i><br />
-          <h2>Direct la sediu</h2>
-          <p>Empire State Building 1, New York</p>
+      </div>
+    </section>
+
+    <!---- Contact ---->
+
+    <section class="contact">
+      <h1>Get in Touch</h1>
+      <p>We're here to help plan your next move.</p>
+
+      <div class="row">
+        <div class="contact-item">
+          <div class="contact-col">
+            <img
+              src="{{ url_for('static', filename='images/contact1.jpeg') }}"
+              alt="Londra"
+            />
+            <div class="layer">
+              <i class="fa-solid fa-envelope"></i><br />
+              <h3>info@example.com</h3>
+            </div>
+          </div>
+          <p class="contact-info">
+            Speak directly with our travel experts.<br /><span class="highlight"
+              >+123-456-789<br />info@example.com</span
+            >
+          </p>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-col">
+            <img
+              src="{{ url_for('static', filename='images/contact2.jpg') }}"
+              alt="Londra"
+            />
+            <div class="layer">
+              <i class="fa-brands fa-facebook"></i><br />
+              <h3>Social Media</h3>
+            </div>
+          </div>
+          <p class="contact-info">
+            Follow us for travel inspiration, tips, and the latest deals.<br /><span
+              class="highlight"
+              >Facebook</span
+            ><br /><span class="highlight">Instagram</span>
+          </p>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-col">
+            <img
+              src="{{ url_for('static', filename='images/contact3.jpg') }}"
+              alt="Londra"
+            />
+            <div class="layer">
+              <i class="fa-solid fa-house"></i><br />
+              <h3>Visit our Shop</h3>
+            </div>
+          </div>
+          <p class="contact-info">
+            Stop by and let’s start planning together!<br /><span
+              class="highlight"
+              >Random Street 1A</span
+            ><br /><span class="highlight">Los Angeles</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!----- Services ----->
+
+    <section class="facilities">
+      <h1>Our Services</h1>
+      <p>Here at Set Tour, we provide very good services.</p>
+
+      <div class="row">
+        <div class="facilities-col">
+          <img
+            src="{{ url_for('static', filename='images/services1.png') }}"
+            alt="Londra"
+          />
+          <h3>Customized Itineraries</h3>
+          <p>
+            Enjoy a fully personalized travel experience. We create itineraries
+            tailored to your preferences, ensuring every moment of your trip is
+            exactly as you dreamed.
+          </p>
+        </div>
+        <div class="facilities-col">
+          <img
+            src="{{ url_for('static', filename='images/services2.png') }}"
+            alt="Londra"
+          />
+          <h3>24/7 Support</h3>
+          <p>
+            Travel with peace of mind. Our dedicated support team is available
+            24/7 to assist you with any questions or needs that may arise during
+            your journey.
+          </p>
+        </div>
+        <div class="facilities-col">
+          <img
+            src="{{ url_for('static', filename='images/services3.png') }}"
+            alt="Londra"
+          />
+          <h3>Exclusive Deals & Discounts</h3>
+          <p>
+            Take advantage of our exclusive partnerships with hotels, airlines,
+            and tour operators. We offer competitive rates and unique discounts,
+            providing you with incredible value on every trip.
+          </p>
         </div>
       </div>
     </section>
@@ -137,6 +235,7 @@
 
     <div class="testimonial-container">
       <h1>Aprecierile clientilor</h1>
+      <p>Here are some of our reviews.</p>
       <input type="radio" name="dot" id="one" />
       <input type="radio" name="dot" id="two" />
       <div class="main-card">
@@ -277,51 +376,12 @@
       </div>
     </div>
 
-    <!-- Offers -->
+    <!----- Call To Action ----->
 
-    <section class="oferte">
-      <h1>Cateva din ofertele noastre</h1>
-      <div class="row">
-        <div class="offer-col">
-          <a href="{{ url_for('main_offer') }}">
-            <img
-              src="{{ url_for('static', filename='images/image-1.png') }}"
-              alt="Londra"
-            />
-            <div class="layer">
-              <h3>Londra <br />$170</h3>
-            </div>
-          </a>
-        </div>
-        <div class="offer-col">
-          <a href="{{ url_for('main_offer') }}">
-            <img
-              src="{{ url_for('static', filename='images/image-2.png') }}"
-              alt="Stockholm"
-            />
-            <div class="layer">
-              <h3>Stockholm <br />$290</h3>
-            </div>
-          </a>
-        </div>
-        <div class="offer-col">
-          <a href="{{ url_for('main_offer') }}">
-            <img
-              src="{{ url_for('static', filename='images/image-3.png') }}"
-              alt="Maldive"
-            />
-            <div class="layer">
-              <h3>Maldive <br />$340</h3>
-            </div>
-          </a>
-        </div>
-      </div>
-      <a href="{{ url_for('show_offers') }}"
-        ><button type="button" class="btn btn-oferte">Vezi oferte</button></a
-      >
+    <section class="cta">
+      <h1>Your Journey Awaits,<br />Let's Make it unforgettable!</h1>
+      <a href="" class="hero-btn">CONTACT US</a>
     </section>
-
-    <!-- Footer -->
 
     <!-- Footer -->
     <section class="footer">

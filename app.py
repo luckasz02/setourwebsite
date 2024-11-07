@@ -59,10 +59,6 @@ def about():
 def contact():
     return render_template('contact.html')
 
-@app.route('/mainoffer')
-def main_offer():
-    return render_template('mainoffer.html')
-
 # Route for displaying offers on the oferta.html page
 @app.route('/oferta')
 def show_offers():
